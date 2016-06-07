@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C1A9BBF1D07648800672B61 /* Circles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BBE1D07648800672B61 /* Circles.swift */; };
 		0C1A9BC11D0764CD00672B61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BC01D0764CD00672B61 /* ViewController.swift */; };
+		0C1A9BC31D07665100672B61 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BC21D07665100672B61 /* README.md */; };
 		0C79800B1D075E8300E76399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C79800A1D075E8300E76399 /* AppDelegate.swift */; };
 		0C7980151D075E8300E76399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7980131D075E8300E76399 /* LaunchScreen.storyboard */; };
 		0C7980201D075E8300E76399 /* BouncingBallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C79801F1D075E8300E76399 /* BouncingBallsTests.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0C1A9BBE1D07648800672B61 /* Circles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circles.swift; sourceTree = "<group>"; };
 		0C1A9BC01D0764CD00672B61 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0C1A9BC21D07665100672B61 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0C7980071D075E8300E76399 /* BouncingBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BouncingBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C79800A1D075E8300E76399 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7980141D075E8300E76399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		0C797FFE1D075E8300E76399 = {
 			isa = PBXGroup;
 			children = (
+				0C1A9BC21D07665100672B61 /* README.md */,
 				0C7980091D075E8300E76399 /* BouncingBalls */,
 				0C79801E1D075E8300E76399 /* BouncingBallsTests */,
 				0C7980291D075E8300E76399 /* BouncingBallsUITests */,
@@ -261,6 +264,7 @@
 			files = (
 				0C1A9BC11D0764CD00672B61 /* ViewController.swift in Sources */,
 				0C79800B1D075E8300E76399 /* AppDelegate.swift in Sources */,
+				0C1A9BC31D07665100672B61 /* README.md in Sources */,
 				0C1A9BBF1D07648800672B61 /* Circles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
