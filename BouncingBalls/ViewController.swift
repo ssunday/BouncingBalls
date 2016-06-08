@@ -47,11 +47,6 @@ class ViewController: UIViewController {
     }
     
     private func addCircle() -> Void{
-//        let size = CGFloat(Int(arc4random_uniform(70)+10))
-//        let newCircle = UIView(frame: CGRectMake(view.frame.minX+20, view.frame.maxY/2-200, size, size))
-//        newCircle.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 50)
-//        newCircle.layer.cornerRadius = size/2
-//        newCircle.clipsToBounds = true
         let newCircle = CreateBall.createNewBall(view.frame)
         let ballVelocities = BallVelocity.getRandomVelocities()
         velocities.append(ballVelocities)

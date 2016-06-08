@@ -42,8 +42,9 @@ class CollisionDetection {
     }
     
     private static func circleFrameOverBottomEdge(circleFrame: CGRect, viewFrame: CGRect) -> Bool {
-        let buttomEdgeOfcircleFrame = circleFrame.maxY
-        let buttomEdgeOfView = viewFrame.maxY - 5
-        return buttomEdgeOfcircleFrame > buttomEdgeOfView
+        let bottomEdgeOfcircleFrame = circleFrame.maxY
+        let bottomEdgeOfView = viewFrame.maxY - 5
+        return bottomEdgeOfcircleFrame > bottomEdgeOfView
     }
+    
 }
