@@ -11,6 +11,9 @@
 		0C1A9BC11D0764CD00672B61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BC01D0764CD00672B61 /* ViewController.swift */; };
 		0C1A9BC31D07665100672B61 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BC21D07665100672B61 /* README.md */; };
 		0C1A9BC51D084EBA00672B61 /* CollisionDetectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BC41D084EBA00672B61 /* CollisionDetectionTests.swift */; };
+		0C1A9BC91D088BF000672B61 /* BallVelocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BC81D088BF000672B61 /* BallVelocity.swift */; };
+		0C1A9BCB1D088D0800672B61 /* BallVelocityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BCA1D088D0800672B61 /* BallVelocityTests.swift */; };
+		0C1A9BCD1D08951700672B61 /* CreateBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BCC1D08951700672B61 /* CreateBall.swift */; };
 		0C79800B1D075E8300E76399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C79800A1D075E8300E76399 /* AppDelegate.swift */; };
 		0C7980151D075E8300E76399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7980131D075E8300E76399 /* LaunchScreen.storyboard */; };
 		0C7980201D075E8300E76399 /* BouncingBallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C79801F1D075E8300E76399 /* BouncingBallsTests.swift */; };
@@ -41,6 +44,9 @@
 		0C1A9BC01D0764CD00672B61 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0C1A9BC21D07665100672B61 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0C1A9BC41D084EBA00672B61 /* CollisionDetectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetectionTests.swift; sourceTree = "<group>"; };
+		0C1A9BC81D088BF000672B61 /* BallVelocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallVelocity.swift; sourceTree = "<group>"; };
+		0C1A9BCA1D088D0800672B61 /* BallVelocityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallVelocityTests.swift; sourceTree = "<group>"; };
+		0C1A9BCC1D08951700672B61 /* CreateBall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBall.swift; sourceTree = "<group>"; };
 		0C7980071D075E8300E76399 /* BouncingBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BouncingBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C79800A1D075E8300E76399 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7980141D075E8300E76399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 				0CF482F71D0763FE00FDB87E /* Assets.xcassets */,
 				0C7980161D075E8300E76399 /* Info.plist */,
 				0C1A9BBE1D07648800672B61 /* CollisionDetection.swift */,
+				0C1A9BC81D088BF000672B61 /* BallVelocity.swift */,
+				0C1A9BCC1D08951700672B61 /* CreateBall.swift */,
 			);
 			path = BouncingBalls;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 				0C79801F1D075E8300E76399 /* BouncingBallsTests.swift */,
 				0C7980211D075E8300E76399 /* Info.plist */,
 				0C1A9BC41D084EBA00672B61 /* CollisionDetectionTests.swift */,
+				0C1A9BCA1D088D0800672B61 /* BallVelocityTests.swift */,
 			);
 			path = BouncingBallsTests;
 			sourceTree = "<group>";
@@ -267,7 +276,9 @@
 			files = (
 				0C1A9BC11D0764CD00672B61 /* ViewController.swift in Sources */,
 				0C79800B1D075E8300E76399 /* AppDelegate.swift in Sources */,
+				0C1A9BCD1D08951700672B61 /* CreateBall.swift in Sources */,
 				0C1A9BC31D07665100672B61 /* README.md in Sources */,
+				0C1A9BC91D088BF000672B61 /* BallVelocity.swift in Sources */,
 				0C1A9BBF1D07648800672B61 /* CollisionDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1A9BCB1D088D0800672B61 /* BallVelocityTests.swift in Sources */,
 				0C7980201D075E8300E76399 /* BouncingBallsTests.swift in Sources */,
 				0C1A9BC51D084EBA00672B61 /* CollisionDetectionTests.swift in Sources */,
 			);
