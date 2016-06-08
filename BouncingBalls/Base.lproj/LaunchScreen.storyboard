@@ -16,7 +16,36 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bouncing Balls" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjR-d5-SsW">
+                                <rect key="frame" x="254" y="193" width="165" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="pPr-cD-09x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Terrible App by Sarah Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1W-IP-VWO">
+                                <rect key="frame" x="215" y="268" width="242" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LjR-d5-SsW" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="173" id="CP3-e5-P5s">
+                                <variation key="widthClass=compact" constant="169"/>
+                            </constraint>
+                            <constraint firstItem="LjR-d5-SsW" firstAttribute="centerX" secondItem="V1W-IP-VWO" secondAttribute="centerX" id="Qjd-gg-uWK"/>
+                            <constraint firstItem="V1W-IP-VWO" firstAttribute="top" secondItem="LjR-d5-SsW" secondAttribute="bottom" constant="54" id="bpJ-q7-ONg">
+                                <variation key="widthClass=compact" constant="57"/>
+                            </constraint>
+                            <constraint firstItem="V1W-IP-VWO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="215" id="tXT-qE-aiU">
+                                <variation key="widthClass=compact" constant="79"/>
+                            </constraint>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

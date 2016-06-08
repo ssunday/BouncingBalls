@@ -10,45 +10,78 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var xVelocityBlack: CGFloat = 1.0
-    var yVelocityBlack: CGFloat = -1.0
+    @IBOutlet var stepper: UIStepper!
+    @IBOutlet var startSwitch: UISwitch!
     
-    @IBOutlet var circleBlack: UIImageView!
+    var timer = NSTimer()
+    var activeCircles = [UIView]()
+    var velocities = [[Int]]()
+    
+    @IBAction func changeCircleAmount(sender : AnyObject) {
+        let currentStep = Int(stepper.value)
+        let currentCircleAmount = activeCircles.count
+        if (currentStep > currentCircleAmount){
+            addCircle()
+        }
+        else if (currentStep < currentCircleAmount){
+            removeCircle()
+        }
+    }
     
     @IBAction func startCircles(sender : AnyObject) {
-        circleBlack.hidden = false
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(ViewController.animateCircles), userInfo: nil, repeats: true)
+        if startSwitch.on {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(ViewController.animateCircles), userInfo: nil, repeats: true)
+        }
+        else {
+            timer.invalidate()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        circleBlack.hidden = true
+        addCircle()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    private func addCircle() -> Void{
+//        let size = CGFloat(Int(arc4random_uniform(70)+10))
+//        let newCircle = UIView(frame: CGRectMake(view.frame.minX+20, view.frame.maxY/2-200, size, size))
+//        newCircle.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 50)
+//        newCircle.layer.cornerRadius = size/2
+//        newCircle.clipsToBounds = true
+        let newCircle = CreateBall.createNewBall(view.frame)
+        let ballVelocities = BallVelocity.getRandomVelocities()
+        velocities.append(ballVelocities)
+        activeCircles.append(newCircle)
+        view.addSubview(newCircle)
+    }
+    
+    private func removeCircle() -> Void {
+        let lastCircle = activeCircles.last
+        activeCircles.popLast()
+        lastCircle?.hidden = true
+        view.willRemoveSubview(lastCircle!)
+    }
     
     func animateCircles()-> Void {
-        let circleBlackFrame = circleBlack.frame
-        let viewFrame = view.frame
-        
-        if CollisionDetection.circleOverLeftRightViewEdges(circleBlackFrame, viewFrame: viewFrame){
-            xVelocityBlack *= -1
+        for i in 0..<activeCircles.count {
+            let circle = activeCircles[i]
+            animateCircle(circle, circleVelocities: &velocities[i])
         }
-        
-        if CollisionDetection.circleOverTopDownViewEdges(circleBlackFrame, viewFrame: viewFrame){
-            yVelocityBlack *= -1
-        }
-        
+    }
+    
+    private func animateCircle(circle: UIView, inout circleVelocities: [Int]) -> Void {
+        let circleFrame = circle.frame
+        circleVelocities = BallVelocity.updateVelocities(circle, allCircles: activeCircles, view: view, currentVelocities: circleVelocities)
         UIView.animateWithDuration(0.1, animations: {
-            var blackFrame = self.circleBlack.frame
-            blackFrame.origin.y = blackFrame.origin.y + self.yVelocityBlack
-            blackFrame.origin.x = blackFrame.origin.x + self.xVelocityBlack
-            self.circleBlack.frame = blackFrame
+            var tempFrame = circleFrame
+            tempFrame.origin.x = tempFrame.origin.x + CGFloat(circleVelocities[0])
+            tempFrame.origin.y = tempFrame.origin.y + CGFloat(circleVelocities[1])
+            circle.frame = tempFrame
         })
-        
     }
     
 }
