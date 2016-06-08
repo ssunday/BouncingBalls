@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var horizontalVelocityBlack: CGFloat = 1.0
-    var verticalVelocityBlack: CGFloat = -1.0
+    var xVelocityBlack: CGFloat = 1.0
+    var yVelocityBlack: CGFloat = -1.0
     
     @IBOutlet var circleBlack: UIImageView!
     
@@ -31,19 +31,21 @@ class ViewController: UIViewController {
     
     
     func animateCircles()-> Void {
+        let circleBlackFrame = circleBlack.frame
+        let viewFrame = view.frame
         
-        if Circles.circleOverRightEdge(circleBlack, view: view) || Circles.circleOverLeftEdge(circleBlack, view: view){
-            horizontalVelocityBlack *= -1
+        if CollisionDetection.circleOverLeftRightViewEdges(circleBlackFrame, viewFrame: viewFrame){
+            xVelocityBlack *= -1
         }
         
-        if Circles.circleOverTopEdge(circleBlack, view: view) || Circles.circleOverBottomEdge(circleBlack, view: view){
-            verticalVelocityBlack *= -1
+        if CollisionDetection.circleOverTopDownViewEdges(circleBlackFrame, viewFrame: viewFrame){
+            yVelocityBlack *= -1
         }
         
         UIView.animateWithDuration(0.1, animations: {
             var blackFrame = self.circleBlack.frame
-            blackFrame.origin.y = blackFrame.origin.y + self.verticalVelocityBlack
-            blackFrame.origin.x = blackFrame.origin.x + self.horizontalVelocityBlack
+            blackFrame.origin.y = blackFrame.origin.y + self.yVelocityBlack
+            blackFrame.origin.x = blackFrame.origin.x + self.xVelocityBlack
             self.circleBlack.frame = blackFrame
         })
         
