@@ -23,8 +23,12 @@ class CreateBall{
     }
     
     private static func generateOriginCoordinate(size: CGFloat, viewFrameDimension: CGFloat) -> CGFloat {
-        let randomPoint = Int(arc4random_uniform(UInt32(viewFrameDimension)))
-        let coordinate = CGFloat(randomPoint) + size
+        var randomPoint = Int(arc4random_uniform(UInt32(viewFrameDimension - size*2)))
+        var coordinate = CGFloat(randomPoint) + size/2
+        while coordinate > viewFrameDimension {
+            randomPoint = Int(arc4random_uniform(UInt32(viewFrameDimension - size*2)))
+            coordinate = CGFloat(randomPoint) + size/2
+        }
         return coordinate
     }
 }
