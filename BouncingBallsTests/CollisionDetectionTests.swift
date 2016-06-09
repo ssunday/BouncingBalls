@@ -49,4 +49,18 @@ class CollisionDetectionTests: XCTestCase {
         XCTAssertFalse(CollisionDetection.circleHasCollidedWithOtherCircle(circle1, circleFrame2: circle2))
     }
     
+    func testCircleHasCollidedWithAnyActiveCircleReturnsFalseWhenNotIntersecting() {
+        let circle1 = UIView(frame: CGRect(x: 50, y: 60, width: 10, height: 10))
+        let circle2 = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        let circles = [circle2, circle1]
+        XCTAssertFalse(CollisionDetection.circleHasCollidedWithAnyActiveCircle(circle1, activeCircles: circles))
+    }
+    
+    func testCircleHasCollidedWithAnyActiveCircleReturnsTrueWhenIntersecting() {
+        let circle1 = UIView(frame: CGRect(x: 30, y: 30, width: 50, height: 40))
+        let circle2 = UIView(frame: CGRect(x: 0, y: 10, width: 40, height: 100))
+        let circles = [circle2, circle1]
+        XCTAssert(CollisionDetection.circleHasCollidedWithAnyActiveCircle(circle1, activeCircles: circles))
+    }
+    
 }

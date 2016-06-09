@@ -11,6 +11,17 @@ import UIKit
 
 class CollisionDetection {
     
+    static func circleHasCollidedWithAnyActiveCircle(circle: UIView, activeCircles: [UIView]) -> Bool {
+        var hasCollided = false
+        hasCollided = false
+        for aCircle in activeCircles {
+            if aCircle !== circle && circleHasCollidedWithOtherCircle(aCircle.frame, circleFrame2: circle.frame){
+                hasCollided = true
+            }
+        }
+        return hasCollided
+    }
+    
     static func circleHasCollidedWithOtherCircle(circleFrame1: CGRect, circleFrame2: CGRect) -> Bool {
         return circleFrame1.intersects(circleFrame2)
     }

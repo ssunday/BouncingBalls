@@ -24,17 +24,12 @@ class BallVelocity {
         if CollisionDetection.circleOverLeftRightViewEdges(circleFrame, viewFrame: viewFrame){
             newVelocities[0] *= -1
         }
-        
-        if CollisionDetection.circleOverTopDownViewEdges(circleFrame, viewFrame: viewFrame){
+        else if CollisionDetection.circleOverTopDownViewEdges(circleFrame, viewFrame: viewFrame){
             newVelocities[1] *= -1
         }
-        
-        for aCircle in allCircles {
-            let aCircleFrame = aCircle.frame
-            if aCircle !== circle && CollisionDetection.circleHasCollidedWithOtherCircle(circleFrame, circleFrame2: aCircleFrame){
-                newVelocities[0] *= -1
-                newVelocities[1] *= -1
-            }
+        else if CollisionDetection.circleHasCollidedWithAnyActiveCircle(circle, activeCircles: allCircles){
+            newVelocities[0] *= -1
+            newVelocities[1] *= -1
         }
         
         return newVelocities

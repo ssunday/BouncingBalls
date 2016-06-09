@@ -21,56 +21,68 @@
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unsplash_522e11654ebff_1" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-oH-fyY">
                                 <rect key="frame" x="0.0" y="-7" width="600" height="607"/>
                             </imageView>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="eol-8J-rWP">
-                                <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7Q-Q1-kBZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeCircleAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S0g-gW-Hec"/>
-                                </connections>
-                            </stepper>
-                            <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AZ2-Uk-LFN">
-                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="startCircles:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S8J-ey-a17"/>
-                                </connections>
-                            </switch>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="QM0-Ti-Zku"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="opb-kM-ZhX"/>
+                                    <barButtonItem style="plain" id="U6v-dL-Gha">
+                                        <switch key="customView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AZ2-Uk-LFN">
+                                            <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="startCircles:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S8J-ey-a17"/>
+                                            </connections>
+                                        </switch>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="4pH-CU-NTc"/>
+                                    <barButtonItem style="plain" id="SVw-G2-dlC">
+                                        <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="5" id="eol-8J-rWP">
+                                            <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="changeCircleAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S0g-gW-Hec"/>
+                                            </connections>
+                                        </stepper>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="qH7-0g-rfF"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="yTa-ko-Zvm"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ytq-oH-fyY" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="9Od-ma-nGT"/>
+                            <constraint firstItem="m7Q-Q1-kBZ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Fuq-IA-x35"/>
                             <constraint firstAttribute="trailing" secondItem="ytq-oH-fyY" secondAttribute="trailing" id="HXU-hM-8bu"/>
+                            <constraint firstItem="m7Q-Q1-kBZ" firstAttribute="leading" secondItem="ytq-oH-fyY" secondAttribute="leading" id="Pbz-mO-3LY"/>
                             <constraint firstItem="ytq-oH-fyY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QIM-B6-oSn"/>
-                            <constraint firstItem="AZ2-Uk-LFN" firstAttribute="centerX" secondItem="eol-8J-rWP" secondAttribute="centerX" id="TAG-uH-JGI"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eol-8J-rWP" secondAttribute="bottom" constant="35" id="V98-Fi-F7z"/>
-                            <constraint firstItem="AZ2-Uk-LFN" firstAttribute="centerX" secondItem="ytq-oH-fyY" secondAttribute="centerX" id="Xvj-qB-sVq"/>
+                            <constraint firstItem="m7Q-Q1-kBZ" firstAttribute="trailing" secondItem="ytq-oH-fyY" secondAttribute="trailing" id="ieB-NU-6ZU"/>
                             <constraint firstAttribute="trailing" secondItem="ytq-oH-fyY" secondAttribute="trailing" id="iuJ-VR-qar"/>
                             <constraint firstItem="ytq-oH-fyY" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="kwl-Fr-pZF"/>
-                            <constraint firstItem="eol-8J-rWP" firstAttribute="top" secondItem="AZ2-Uk-LFN" secondAttribute="bottom" constant="42" id="rcY-Wc-viN"/>
                             <constraint firstItem="ytq-oH-fyY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-7" id="uW2-0X-0Xs"/>
                             <constraint firstItem="ytq-oH-fyY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uXL-vf-7ru"/>
                             <constraint firstItem="ytq-oH-fyY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-7" id="vgo-i9-Kuo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="eol-8J-rWP"/>
-                                <exclude reference="AZ2-Uk-LFN"/>
+                                <exclude reference="m7Q-Q1-kBZ"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9Od-ma-nGT"/>
                                 <exclude reference="HXU-hM-8bu"/>
                                 <exclude reference="uW2-0X-0Xs"/>
                                 <exclude reference="uXL-vf-7ru"/>
-                                <exclude reference="TAG-uH-JGI"/>
-                                <exclude reference="Xvj-qB-sVq"/>
-                                <exclude reference="rcY-Wc-viN"/>
-                                <exclude reference="V98-Fi-F7z"/>
+                                <exclude reference="Fuq-IA-x35"/>
+                                <exclude reference="Pbz-mO-3LY"/>
+                                <exclude reference="ieB-NU-6ZU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="eol-8J-rWP"/>
-                                <include reference="AZ2-Uk-LFN"/>
+                                <include reference="m7Q-Q1-kBZ"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="9Od-ma-nGT"/>
@@ -81,10 +93,9 @@
                                 <include reference="uW2-0X-0Xs"/>
                                 <include reference="uXL-vf-7ru"/>
                                 <exclude reference="vgo-i9-Kuo"/>
-                                <include reference="TAG-uH-JGI"/>
-                                <include reference="Xvj-qB-sVq"/>
-                                <include reference="rcY-Wc-viN"/>
-                                <include reference="V98-Fi-F7z"/>
+                                <include reference="Fuq-IA-x35"/>
+                                <include reference="Pbz-mO-3LY"/>
+                                <include reference="ieB-NU-6ZU"/>
                             </mask>
                         </variation>
                     </view>
