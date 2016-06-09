@@ -39,7 +39,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCircle()
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,7 +46,10 @@ class ViewController: UIViewController {
     }
     
     private func addCircle() -> Void{
-        let newCircle = CreateBall.createNewBall(view.frame)
+        var newCircle = CreateBall.createNewBall(view.frame)
+        while CollisionDetection.circleHasCollidedWithAnyActiveCircle(newCircle, activeCircles: activeCircles) {
+            newCircle = CreateBall.createNewBall(view.frame)
+        }
         let ballVelocities = BallVelocity.getRandomVelocities()
         velocities.append(ballVelocities)
         activeCircles.append(newCircle)
@@ -70,7 +72,10 @@ class ViewController: UIViewController {
     
     private func animateCircle(circle: UIView, inout circleVelocities: [Int]) -> Void {
         let circleFrame = circle.frame
-        circleVelocities = BallVelocity.updateVelocities(circle, allCircles: activeCircles, view: view, currentVelocities: circleVelocities)
+        let originalViewFrame = view.frame
+        let viewFrameWithoutToolbar = CGRect(x: originalViewFrame.origin.x, y: originalViewFrame.origin.y, width: originalViewFrame.width, height: originalViewFrame.height - 44)
+        let trueView = UIView(frame: viewFrameWithoutToolbar)
+        circleVelocities = BallVelocity.updateVelocities(circle, allCircles: activeCircles, view: trueView, currentVelocities: circleVelocities)
         UIView.animateWithDuration(0.1, animations: {
             var tempFrame = circleFrame
             tempFrame.origin.x = tempFrame.origin.x + CGFloat(circleVelocities[0])
