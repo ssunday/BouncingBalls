@@ -12,8 +12,7 @@ import XCTest
 class CreateBallTests: XCTestCase {
 
     func testCreateNewBallClipsToBoundIsTrue() {
-        let viewFrame = CGRect(x: 0, y: 0, width: 1000, height: 1000)
-        XCTAssert(CreateBall.createNewBall(viewFrame).clipsToBounds)
+        XCTAssert(CreateBall.createNewBall(CGFloat(1000), viewHeight: CGFloat(950)).clipsToBounds)
     }
 
 }

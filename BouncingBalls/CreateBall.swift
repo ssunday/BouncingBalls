@@ -11,10 +11,10 @@ import UIKit
 
 class CreateBall {
     
-    static func createNewBall(viewFrame: CGRect) -> UIView{
+    static func createNewBall(viewWidth: CGFloat, viewHeight: CGFloat) -> UIView{
         let size = CGFloat(Int(arc4random_uniform(60)+30))
-        let xCoordinate = generateOriginCoordinate(size, viewFrameDimension: viewFrame.width)
-        let yCoordinate = generateOriginCoordinate(size, viewFrameDimension: viewFrame.height)
+        let xCoordinate = generateOriginCoordinate(size, viewFrameDimension: viewWidth)
+        let yCoordinate = generateOriginCoordinate(size, viewFrameDimension: viewHeight)
         let newCircle = UIView(frame: CGRectMake(xCoordinate, yCoordinate, size, size))
         newCircle.backgroundColor = randomColor()
         newCircle.layer.cornerRadius = size/2

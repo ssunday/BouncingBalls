@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     
     @IBOutlet var stepper: UIStepper!
     @IBOutlet var startSwitch: UISwitch!
+    @IBOutlet var speedSlider: UISlider!
+    
+    let toolbarHeight = CGFloat(45);
     
     var timer = NSTimer()
     var activeCircles = [UIView]()
@@ -46,9 +49,11 @@ class ViewController: UIViewController {
     }
     
     private func addCircle() -> Void{
-        var newCircle = CreateBall.createNewBall(view.frame)
+        let viewWidth = view.frame.width
+        let viewHeight = view.frame.height - toolbarHeight
+        var newCircle = CreateBall.createNewBall(viewWidth, viewHeight: viewHeight)
         while CollisionDetection.circleHasCollidedWithAnyActiveCircle(newCircle, activeCircles: activeCircles) {
-            newCircle = CreateBall.createNewBall(view.frame)
+            newCircle = CreateBall.createNewBall(viewWidth, viewHeight: viewHeight)
         }
         let ballVelocities = BallVelocity.getRandomVelocities()
         velocities.append(ballVelocities)
@@ -71,17 +76,23 @@ class ViewController: UIViewController {
     }
     
     private func animateCircle(circle: UIView, inout circleVelocities: [Int]) -> Void {
+        let speedFactor = getSpeedFactor();
         let circleFrame = circle.frame
         let originalViewFrame = view.frame
-        let viewFrameWithoutToolbar = CGRect(x: originalViewFrame.origin.x, y: originalViewFrame.origin.y, width: originalViewFrame.width, height: originalViewFrame.height - 44)
+        let viewFrameWithoutToolbar = CGRect(x: originalViewFrame.origin.x, y: originalViewFrame.origin.y, width: originalViewFrame.width, height: originalViewFrame.height - 50)
         let trueView = UIView(frame: viewFrameWithoutToolbar)
         circleVelocities = BallVelocity.updateVelocities(circle, allCircles: activeCircles, view: trueView, currentVelocities: circleVelocities)
         UIView.animateWithDuration(0.1, animations: {
             var tempFrame = circleFrame
-            tempFrame.origin.x = tempFrame.origin.x + CGFloat(circleVelocities[0])
-            tempFrame.origin.y = tempFrame.origin.y + CGFloat(circleVelocities[1])
+            tempFrame.origin.x = tempFrame.origin.x + CGFloat(Float(circleVelocities[0]) * speedFactor)
+            tempFrame.origin.y = tempFrame.origin.y + CGFloat(Float(circleVelocities[1]) * speedFactor)
             circle.frame = tempFrame
         })
+    }
+    
+    
+    private func getSpeedFactor() -> Float {
+        return speedSlider.value
     }
     
 }

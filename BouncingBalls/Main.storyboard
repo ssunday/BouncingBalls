@@ -25,7 +25,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="QM0-Ti-Zku"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BbY-2X-cwY"/>
+                                    <barButtonItem style="plain" id="z7G-fi-VOo">
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" id="KBd-kP-iQn">
+                                            <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </slider>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="opb-kM-ZhX"/>
                                     <barButtonItem style="plain" id="U6v-dL-Gha">
                                         <switch key="customView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AZ2-Uk-LFN">
@@ -36,7 +42,7 @@
                                             </connections>
                                         </switch>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="4pH-CU-NTc"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="yTa-ko-Zvm"/>
                                     <barButtonItem style="plain" id="SVw-G2-dlC">
                                         <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="5" id="eol-8J-rWP">
                                             <rect key="frame" x="-47" y="-14" width="94" height="29"/>
@@ -47,8 +53,7 @@
                                             </connections>
                                         </stepper>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="qH7-0g-rfF"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="yTa-ko-Zvm"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="H7P-nh-SBb"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -71,13 +76,13 @@
                                 <exclude reference="m7Q-Q1-kBZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Fuq-IA-x35"/>
+                                <exclude reference="Pbz-mO-3LY"/>
+                                <exclude reference="ieB-NU-6ZU"/>
                                 <exclude reference="9Od-ma-nGT"/>
                                 <exclude reference="HXU-hM-8bu"/>
                                 <exclude reference="uW2-0X-0Xs"/>
                                 <exclude reference="uXL-vf-7ru"/>
-                                <exclude reference="Fuq-IA-x35"/>
-                                <exclude reference="Pbz-mO-3LY"/>
-                                <exclude reference="ieB-NU-6ZU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -85,6 +90,9 @@
                                 <include reference="m7Q-Q1-kBZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Fuq-IA-x35"/>
+                                <include reference="Pbz-mO-3LY"/>
+                                <include reference="ieB-NU-6ZU"/>
                                 <include reference="9Od-ma-nGT"/>
                                 <include reference="HXU-hM-8bu"/>
                                 <exclude reference="QIM-B6-oSn"/>
@@ -93,13 +101,11 @@
                                 <include reference="uW2-0X-0Xs"/>
                                 <include reference="uXL-vf-7ru"/>
                                 <exclude reference="vgo-i9-Kuo"/>
-                                <include reference="Fuq-IA-x35"/>
-                                <include reference="Pbz-mO-3LY"/>
-                                <include reference="ieB-NU-6ZU"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="speedSlider" destination="KBd-kP-iQn" id="4sd-6K-KjM"/>
                         <outlet property="startSwitch" destination="AZ2-Uk-LFN" id="3HN-67-qEf"/>
                         <outlet property="stepper" destination="eol-8J-rWP" id="zzB-ZO-q4z"/>
                     </connections>

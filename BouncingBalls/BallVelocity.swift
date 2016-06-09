@@ -31,7 +31,6 @@ class BallVelocity {
             newVelocities[0] *= -1
             newVelocities[1] *= -1
         }
-        
         return newVelocities
     }
     
