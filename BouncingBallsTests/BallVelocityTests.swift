@@ -20,10 +20,10 @@ class BallVelocityTests: XCTestCase {
     }
     
     func testUpdateVelocitiesReturnsInvertedVelocityIfHittingOtherCircle(){
-        let circle = UIView(frame: CGRect(x: 20, y: 20, width: 1, height: 1))
-        let otherCircle = UIView(frame: CGRect(x: 19, y: 19, width: 2, height: 1))
+        let circle = UIView(frame: CGRect(x: 20, y: 20, width: 5, height: 5))
+        let otherCircle = UIView(frame: CGRect(x: 19, y: 19, width: 5, height: 5))
         let allCircles = [circle, otherCircle]
-        let view = UIView(frame: CGRect(x: 100, y: 100, width: 1, height: 1))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
         let currentVelocities = [1,1]
         XCTAssertEqual(BallVelocity.updateVelocities(circle, allCircles: allCircles, view: view, currentVelocities: currentVelocities), [-1,-1])
     }

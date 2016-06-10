@@ -15,6 +15,8 @@
 		0C1A9BCB1D088D0800672B61 /* BallVelocityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BCA1D088D0800672B61 /* BallVelocityTests.swift */; };
 		0C1A9BCD1D08951700672B61 /* CreateBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BCC1D08951700672B61 /* CreateBall.swift */; };
 		0C1A9BCF1D089AE000672B61 /* CreateBallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A9BCE1D089AE000672B61 /* CreateBallTests.swift */; };
+		0C1E81BB1D0ADE330037C1E6 /* CreateBallFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1E81BA1D0ADE330037C1E6 /* CreateBallFactory.swift */; };
+		0C1E81BD1D0ADE410037C1E6 /* CreateBallFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1E81BC1D0ADE410037C1E6 /* CreateBallFactoryTests.swift */; };
 		0C79800B1D075E8300E76399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C79800A1D075E8300E76399 /* AppDelegate.swift */; };
 		0C7980151D075E8300E76399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7980131D075E8300E76399 /* LaunchScreen.storyboard */; };
 		0C7980201D075E8300E76399 /* BouncingBallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C79801F1D075E8300E76399 /* BouncingBallsTests.swift */; };
@@ -49,6 +51,8 @@
 		0C1A9BCA1D088D0800672B61 /* BallVelocityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallVelocityTests.swift; sourceTree = "<group>"; };
 		0C1A9BCC1D08951700672B61 /* CreateBall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBall.swift; sourceTree = "<group>"; };
 		0C1A9BCE1D089AE000672B61 /* CreateBallTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBallTests.swift; sourceTree = "<group>"; };
+		0C1E81BA1D0ADE330037C1E6 /* CreateBallFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBallFactory.swift; sourceTree = "<group>"; };
+		0C1E81BC1D0ADE410037C1E6 /* CreateBallFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBallFactoryTests.swift; sourceTree = "<group>"; };
 		0C7980071D075E8300E76399 /* BouncingBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BouncingBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C79800A1D075E8300E76399 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7980141D075E8300E76399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 				0C79803E1D075ED200E76399 /* Main.storyboard */,
 				0C7980131D075E8300E76399 /* LaunchScreen.storyboard */,
 				0C1A9BC01D0764CD00672B61 /* ViewController.swift */,
+				0C1E81BA1D0ADE330037C1E6 /* CreateBallFactory.swift */,
 				0CF482F71D0763FE00FDB87E /* Assets.xcassets */,
 				0C7980161D075E8300E76399 /* Info.plist */,
 				0C1A9BBE1D07648800672B61 /* CollisionDetection.swift */,
@@ -133,6 +138,7 @@
 				0C1A9BC41D084EBA00672B61 /* CollisionDetectionTests.swift */,
 				0C1A9BCA1D088D0800672B61 /* BallVelocityTests.swift */,
 				0C1A9BCE1D089AE000672B61 /* CreateBallTests.swift */,
+				0C1E81BC1D0ADE410037C1E6 /* CreateBallFactoryTests.swift */,
 			);
 			path = BouncingBallsTests;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C1A9BC11D0764CD00672B61 /* ViewController.swift in Sources */,
+				0C1E81BB1D0ADE330037C1E6 /* CreateBallFactory.swift in Sources */,
 				0C79800B1D075E8300E76399 /* AppDelegate.swift in Sources */,
 				0C1A9BCD1D08951700672B61 /* CreateBall.swift in Sources */,
 				0C1A9BC31D07665100672B61 /* README.md in Sources */,
@@ -293,6 +300,7 @@
 				0C1A9BCB1D088D0800672B61 /* BallVelocityTests.swift in Sources */,
 				0C7980201D075E8300E76399 /* BouncingBallsTests.swift in Sources */,
 				0C1A9BCF1D089AE000672B61 /* CreateBallTests.swift in Sources */,
+				0C1E81BD1D0ADE410037C1E6 /* CreateBallFactoryTests.swift in Sources */,
 				0C1A9BC51D084EBA00672B61 /* CollisionDetectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

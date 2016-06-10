@@ -14,11 +14,23 @@ class ViewController: UIViewController {
     @IBOutlet var startSwitch: UISwitch!
     @IBOutlet var speedSlider: UISlider!
     
-    let toolbarHeight = CGFloat(45);
+    let bottomBarHeight = CGFloat(50);
+    let topBarHeight = CGFloat(65);
     
+    var createBallFactory: CreateBallFactory!
+    var trueView: UIView!
     var timer = NSTimer()
     var activeCircles = [UIView]()
     var velocities = [[Int]]()
+    
+    @IBAction func getAppInfo(sender : AnyObject){
+        let messageContent = "Add balls with the +/- buttons, speed up and slow down with the slider and start/stop animating with the switch."
+        let alertController = UIAlertController(title: "Bouncing Balls Instructions", message:
+            messageContent, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
     @IBAction func changeCircleAmount(sender : AnyObject) {
         let currentStep = Int(stepper.value)
@@ -42,6 +54,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        trueView = trueViewFrame()
+        createBallFactory = CreateBallFactory(viewFrame: trueView.frame)
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,12 +63,7 @@ class ViewController: UIViewController {
     }
     
     private func addCircle() -> Void{
-        let viewWidth = view.frame.width
-        let viewHeight = view.frame.height - toolbarHeight
-        var newCircle = CreateBall.createNewBall(viewWidth, viewHeight: viewHeight)
-        while CollisionDetection.circleHasCollidedWithAnyActiveCircle(newCircle, activeCircles: activeCircles) {
-            newCircle = CreateBall.createNewBall(viewWidth, viewHeight: viewHeight)
-        }
+        let newCircle = createBallFactory.generateBall(activeCircles)
         let ballVelocities = BallVelocity.getRandomVelocities()
         velocities.append(ballVelocities)
         activeCircles.append(newCircle)
@@ -78,9 +87,6 @@ class ViewController: UIViewController {
     private func animateCircle(circle: UIView, inout circleVelocities: [Int]) -> Void {
         let speedFactor = getSpeedFactor();
         let circleFrame = circle.frame
-        let originalViewFrame = view.frame
-        let viewFrameWithoutToolbar = CGRect(x: originalViewFrame.origin.x, y: originalViewFrame.origin.y, width: originalViewFrame.width, height: originalViewFrame.height - 50)
-        let trueView = UIView(frame: viewFrameWithoutToolbar)
         circleVelocities = BallVelocity.updateVelocities(circle, allCircles: activeCircles, view: trueView, currentVelocities: circleVelocities)
         UIView.animateWithDuration(0.1, animations: {
             var tempFrame = circleFrame
@@ -90,6 +96,12 @@ class ViewController: UIViewController {
         })
     }
     
+    private func trueViewFrame() -> UIView {
+        let originalViewFrame = view.frame
+        let viewFrameWithoutBars = CGRect(x: originalViewFrame.origin.x, y: originalViewFrame.origin.y + topBarHeight, width: originalViewFrame.width, height: originalViewFrame.height - (bottomBarHeight + topBarHeight))
+        let trueView = UIView(frame: viewFrameWithoutBars)
+        return trueView
+    }
     
     private func getSpeedFactor() -> Float {
         return speedSlider.value
