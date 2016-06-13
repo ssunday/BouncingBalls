@@ -36,19 +36,6 @@ class CollisionDetectionTests: XCTestCase {
         XCTAssert(CollisionDetection.circleOverLeftRightViewEdges(circle, viewFrame: view))
     }
     
-    
-    func testCircleHasCollidedWithOtherCircleReturnsTrueWhenIntersecting() {
-        let circle1 = CGRect(x: 30, y: 30, width: 50, height: 40)
-        let circle2 = CGRect(x: 0, y: 10, width: 40, height: 100)
-        XCTAssert(CollisionDetection.circleHasCollidedWithOtherCircle(circle1, circleFrame2: circle2))
-    }
-    
-    func testCircleHasCollidedWithOtherCircleReturnsFalseWhenNotIntersecting() {
-        let circle1 = CGRect(x: 50, y: 60, width: 10, height: 10)
-        let circle2 = CGRect(x: 0, y: 0, width: 10, height: 10)
-        XCTAssertFalse(CollisionDetection.circleHasCollidedWithOtherCircle(circle1, circleFrame2: circle2))
-    }
-    
     func testCircleHasCollidedWithAnyActiveCircleReturnsFalseWhenNotIntersecting() {
         let circle1 = UIView(frame: CGRect(x: 50, y: 60, width: 10, height: 10))
         let circle2 = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))

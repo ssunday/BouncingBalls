@@ -22,16 +22,41 @@ class CollisionDetection {
         return hasCollided
     }
     
-    static func circleHasCollidedWithOtherCircle(circleFrame1: CGRect, circleFrame2: CGRect) -> Bool {
-        return circleFrame1.intersects(circleFrame2)
-    }
-    
     static func circleOverLeftRightViewEdges(circleFrame: CGRect, viewFrame: CGRect) -> Bool {
         return circleFrameOverLeftEdge(circleFrame, viewFrame: viewFrame) || circleFrameOverRightEdge(circleFrame, viewFrame: viewFrame)
     }
     
     static func circleOverTopDownViewEdges(circleFrame: CGRect, viewFrame: CGRect) -> Bool {
         return circleFrameOverTopEdge(circleFrame, viewFrame: viewFrame) || circleFrameOverBottomEdge(circleFrame, viewFrame: viewFrame)
+    }
+    
+    private static func circleHasCollidedWithOtherCircle(circleFrame1: CGRect, circleFrame2: CGRect) -> Bool {
+        let e: CGFloat = 0.3
+        let distanceDifferential = getDistanceDifferential(circleFrame1, circleFrame2: circleFrame2)
+        return distanceDifferential >= e
+    }
+    
+    private static func getDistanceDifferential(circleFrame1: CGRect, circleFrame2: CGRect) -> CGFloat {
+        let sumOfRadii = getSumOfRadii(circleFrame1, circleFrame2: circleFrame2)
+        let distance = getDistanceBetweenOrigins(circleFrame1, circleFrame2: circleFrame2)
+        let distanceDifferential = sumOfRadii - distance
+        return distanceDifferential
+    }
+    
+    private static func getSumOfRadii(circleFrame1: CGRect, circleFrame2: CGRect) -> CGFloat {
+        let radii1 = circleFrame1.height/2.0
+        let radii2 = circleFrame2.height/2.0
+        let sumOfRadii = radii1 + radii2
+        return sumOfRadii
+    }
+    
+    private static func getDistanceBetweenOrigins(circleFrame1: CGRect, circleFrame2: CGRect) -> CGFloat {
+        let circle1Origin = circleFrame1.origin
+        let circle2Origin = circleFrame2.origin
+        let xDist = (circle2Origin.x - circle1Origin.x)
+        let yDist = (circle2Origin.y - circle1Origin.y)
+        let distanceBetweenOrigins = sqrt((xDist * xDist) + (yDist * yDist))
+        return distanceBetweenOrigins
     }
     
     private static func circleFrameOverRightEdge(circleFrame: CGRect, viewFrame: CGRect) -> Bool {
