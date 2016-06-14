@@ -31,15 +31,15 @@ class CollisionDetection {
     }
     
     private static func circleHasCollidedWithOtherCircle(circleFrame1: CGRect, circleFrame2: CGRect) -> Bool {
-        let e: CGFloat = 0.3
+        let e: CGFloat = 0.5
         let distanceDifferential = getDistanceDifferential(circleFrame1, circleFrame2: circleFrame2)
-        return distanceDifferential >= e
+        return distanceDifferential < e
     }
     
     private static func getDistanceDifferential(circleFrame1: CGRect, circleFrame2: CGRect) -> CGFloat {
         let sumOfRadii = getSumOfRadii(circleFrame1, circleFrame2: circleFrame2)
         let distance = getDistanceBetweenOrigins(circleFrame1, circleFrame2: circleFrame2)
-        let distanceDifferential = sumOfRadii - distance
+        let distanceDifferential = distance - sumOfRadii
         return distanceDifferential
     }
     

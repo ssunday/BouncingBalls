@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         let speedFactor = getSpeedFactor();
         let circleFrame = circle.frame
         circleVelocities = BallVelocity.updateVelocities(circle, allCircles: activeCircles, view: trueView, currentVelocities: circleVelocities)
-        UIView.animateWithDuration(0.1, animations: {
+        UIView.animateWithDuration(0.01, animations: {
             var tempFrame = circleFrame
             tempFrame.origin.x = tempFrame.origin.x + CGFloat(Float(circleVelocities[0]) * speedFactor)
             tempFrame.origin.y = tempFrame.origin.y + CGFloat(Float(circleVelocities[1]) * speedFactor)
